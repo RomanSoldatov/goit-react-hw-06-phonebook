@@ -3,7 +3,7 @@ import { setFilter } from '../../redux/filter/filter-slice';
 import { getFilter } from '../../redux/filter/filter-selectors';
 
 import { BsSearch } from 'react-icons/bs';
-import { LabelWrapper, Input, LabelDescr, LabelSpan } from './Filter.styled';
+import { LabelWrapper, Input, LabelDescr } from './Filter.styled';
 
 export const Filter = () => {
   const filter = useSelector(getFilter);

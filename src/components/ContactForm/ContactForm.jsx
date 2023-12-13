@@ -19,7 +19,6 @@ import {
   ErrorMessage,
   StyledButton,
   LabelWrapper,
-  LabelSpan,
 } from './ContactForm.styled';
 
 const schema = yup.object().shape({
