@@ -4,8 +4,8 @@ import { IoPersonRemove } from 'react-icons/io5';
 import { Btn, Item, List } from './ContactList.styled';
 
 // redux
-import { deleteContact } from 'redux/contacts/contacts-slice';
-import { getFilteredContacts } from 'redux/contacts/contacts-selectors';
+import { deleteContact } from '../../redux/contacts/contacts-slice';
+import { getFilteredContacts } from '../../redux/contacts/contacts-selectors';
 
 export const ContactList = () => {
   const filteredContacts = useSelector(getFilteredContacts);

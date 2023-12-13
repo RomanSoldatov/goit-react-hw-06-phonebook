@@ -31,9 +31,6 @@ export const LabelWrapper = styled.div`
   justify-content: flex-start;
   gap: 8px;
   margin-left: 8px;
-`;
-
-export const LabelSpan = styled.span`
   color: ${props => props.theme.colors.black};
 `;
 

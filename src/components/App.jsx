@@ -11,7 +11,7 @@ import { Filter } from './Filter/Filter';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 
-import { getContacts } from 'redux/contacts/contacts-selectors';
+import { getContacts } from '../redux/contacts/contacts-selectors';
 
 export const App = () => {
   const contacts = useSelector(getContacts);

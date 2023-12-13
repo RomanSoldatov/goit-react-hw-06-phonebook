@@ -1,14 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import 'yup-phone';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { toastifyOptions } from 'utils/toastifyOptions';
 
-import { addContact } from 'redux/contacts/contacts-slice';
-import { getContacts } from 'redux/contacts/contacts-selectors';
+import { addContact } from '../../redux/contacts/contacts-slice';
+import { getContacts } from '../../redux/contacts/contacts-selectors';
 
 import { BsFillTelephoneFill, BsPersonFill } from 'react-icons/bs';
 import { IoMdPersonAdd } from 'react-icons/io';
@@ -34,10 +33,10 @@ const schema = yup.object().shape({
     .required(),
   number: yup
     .string()
-    .phone(
-      'UA',
-      true,
-      'Phone number must be a valid phone number for region UA, digits and can contain spaces, dashes, parentheses and can start with +'
+    .trim()
+    .matches(
+      /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
+      'Phone number must be digits and can contain spaces, dashes, parentheses and can start with +'
     )
     .required(),
 });
@@ -68,7 +67,6 @@ export const ContactForm = () => {
       );
     }
     dispatch(addContact({ name, number }));
-
   };
   return (
     <Formik
@@ -83,21 +81,17 @@ export const ContactForm = () => {
         <FormField>
           <LabelWrapper>
             <BsPersonFill />
-            <LabelSpan>Name</LabelSpan>
+            Name
           </LabelWrapper>
-          <FieldFormik type="text" name="name" placeholder="Name" />
+          <FieldFormik type="text" name="name" />
           <ErrorMessage name="name" component="span" />
         </FormField>
         <FormField>
           <LabelWrapper>
             <BsFillTelephoneFill />
-            <LabelSpan>Number</LabelSpan>
+            Number
           </LabelWrapper>
-          <FieldFormik
-            type="tel"
-            name="number"
-            placeholder="+38-050-123-45-67"
-          />
+          <FieldFormik type="tel" name="number" />
           <ErrorMessage name="number" component="span" />
         </FormField>
         <StyledButton type="submit">
