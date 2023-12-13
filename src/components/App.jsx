@@ -17,7 +17,7 @@ export const App = () => {
   const contacts = useSelector(getContacts);
   return (
     <Layout>
-      <Section title="PhoneBook">
+      <Section title="Phonebook">
         <ContactForm />
         {contacts.length > 0 && (
           <>

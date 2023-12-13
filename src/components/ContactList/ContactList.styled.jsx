@@ -29,8 +29,9 @@ export const Btn = styled.button`
   padding-left: ${p => p.theme.space[3]}px;
   padding-right: ${p => p.theme.space[3]}px;
 
-  border: none;
+  border: ${p => p.theme.borders.none};
   outline: none;
+  border-radius: 8px;
 
   color: ${props => props.theme.colors.black};
   background-color: ${p => p.theme.colors.background};
